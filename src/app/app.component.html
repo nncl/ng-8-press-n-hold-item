@@ -2,12 +2,16 @@
 <button (click)="updateTotal()">Check total</button>
 
 <ul>
-  <li *ngFor="let item of results" appPressHold (holdTime)="holdTime($event, item)">
-    {{item.name}}
+  <li *ngFor="let item of results"
+      appPressHold
+      (holdTime)="holdTime($event, item)">
+    <a href="https://google.com" target="_blank">
+      {{item.name}}
 
-    <div *ngIf="item.selected">
-      <input type="checkbox" [(ngModel)]="item.selected">
-      <button (click)="item.selected = false">x</button>
-    </div>
+      <div *ngIf="item.selected">
+        <input type="checkbox" [(ngModel)]="item.selected">
+        <button (click)="item.selected = false">x</button>
+      </div>
+    </a>
   </li>
 </ul>
