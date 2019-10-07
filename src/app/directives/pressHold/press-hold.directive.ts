@@ -22,12 +22,12 @@ export class PressHoldDirective {
 
   @HostListener('touchend', ['$event'])
   @HostListener('mouseleave', ['$event'])
-  onExit() {
+  onExit($event: TouchEvent) {
     this.state.next('cancel');
   }
 
   @HostListener('touchstart', ['$event'])
-  onHold() {
+  onHold($event: TouchEvent) {
     console.log('%c started hold', 'color: green');
     this.state.next('start');
     const n = 100;
